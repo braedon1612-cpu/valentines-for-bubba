@@ -25,6 +25,19 @@ button {
   color: #ff4d6d;
   cursor: pointer;
 }
+
+/* Fade-in styles */
+.fade {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  max-width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.fade.show {
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -35,15 +48,20 @@ button {
 
 <button onclick="showMessage()">Click Me ❤️</button>
 
-<p id="hiddenMessage" style="display:none; margin-top:20px;">
-You mean the world to me. Thank you for loving me the way you do and for always being there and see the better in me.
+<p id="hiddenMessage" class="fade">
+  You mean the world to me. Thank you for loving me the way you do and for always being there and see the better in me.
 </p>
+
+<img id="hiddenImage" class="fade" src="IMG_1521.JPG" alt="Love">
 
 <script>
 function showMessage() {
-  document.getElementById("hiddenMessage").style.display = "block";
+  // Add the 'show' class to fade in
+  document.getElementById("hiddenMessage").classList.add("show");
+  document.getElementById("hiddenImage").classList.add("show");
 }
 </script>
 
 </body>
 </html>
+
