@@ -38,6 +38,11 @@ button {
 .fade.show {
   opacity: 1;
 }
+
+/* Optional: add a subtle shadow to image */
+img {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
 </style>
 </head>
 <body>
@@ -52,16 +57,28 @@ button {
   You mean the world to me. Thank you for loving me the way you do and for always being there and see the better in me.
 </p>
 
-<img id="hiddenImage" class="fade" src="IMG_1521.JPG" alt="Love">
+<!-- Use a local path or fallback if it fails -->
+<img id="hiddenImage" class="fade" alt="Love" style="display:none;">
 
 <script>
+// Make the image more reliable
 function showMessage() {
-  // Add the 'show' class to fade in
+  // Show the text
   document.getElementById("hiddenMessage").classList.add("show");
-  document.getElementById("hiddenImage").classList.add("show");
+
+  // Set the image src dynamically
+  const img = document.getElementById("hiddenImage");
+  img.src = "IMG_1521.JPG"; // Ensure file is in the same folder as HTML
+  img.style.display = "block";
+
+  // Fade in
+  setTimeout(() => {
+    img.classList.add("show");
+  }, 50); // small delay to allow browser to register display change
 }
 </script>
 
 </body>
 </html>
+
 
